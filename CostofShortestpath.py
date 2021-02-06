@@ -45,8 +45,17 @@ class Graph:
     def printSolution(self, dist, parent,src): 
         print("Src-->Dest: \t\t Cost from Source to Destination ") 
         for i in range(0, len(dist)):
-            print("%s --> %s \t\t Cost:%d" % (cities[src], cities[i], dist[i])),
-            Path=self.printPath(parent,i)
+            #print(dest_cities)
+            #print(no_of_people)
+            for k in range(0, len(dest_cities)):
+                if( i==dest_cities[k]):
+                    print("%s --> %s \t\t Cost:%d" % (cities[src], cities[i], dist[i])),
+                    Path=self.printPath(parent,i)
+                else:
+                    print('----------')
+            #if( i =)
+            #print("%s --> %s \t\t Cost:%d" % (cities[src], cities[i], dist[i])),
+            #Path=self.printPath(parent,i)
             if ( i < 6 ):
                 print("next Destination:")
             else:
@@ -113,14 +122,14 @@ class Graph:
         self.printSolution(dist,parent,src) 
   
 g= Graph() 
-G = [[0, 110, 132, INF, INF, INF, INF],
-    [110, 0, INF, 159, INF, INF, 59],
-    [132, INF, 0, INF, 89, INF, 120],
-    [INF, 159, INF, 0, INF, 98, 108],
-    [INF, INF, 89, INF, 0, 68, 102],
-    [INF, INF, INF, 98, 68, 0, 92],
-    [INF, 59, 120, 108, 102, 92, 0]]
-
+#G = [[0, 110, 132, INF, INF, INF, INF],
+#    [110, 0, INF, 159, INF, INF, 59],
+#    [132, INF, 0, INF, 89, INF, 120],
+#    [INF, 159, INF, 0, INF, 98, 108],
+#    [INF, INF, 89, INF, 0, 68, 102],
+#    [INF, INF, INF, 98, 68, 0, 92],
+#    [INF, 59, 120, 108, 102, 92, 0]]
+#
 
 graph = [[0, 110, 132, 0, 0, 0, 0],
     [110, 0, 0, 159, 0, 0, 59],
@@ -148,10 +157,10 @@ try:
         msg = "Enter destination city for person " + str(i) + ": "
         # print(msg)
         dest_cities.append(cities.index(str(input(msg)).upper()[0]))
-    print(dest_cities)
+    #print(dest_cities)
 except:
     print('Unexpected input!')
-
-
+#print(no_of_people)
+#print(dest_cities)
 #start = cities.index(str(input('Enter start city: ')).upper()[0])
-g.dijkstra(graph,start)  
+g.dijkstra(graph,start)
